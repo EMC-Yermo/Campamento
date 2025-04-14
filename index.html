@@ -1,197 +1,236 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campamento Yermista 2025 - Escuela Martin de Coruña</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-      color: #333;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 800px;
-      background: #fff;
-      margin: 40px auto;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    }
-    /* La imagen se coloca por fuera del header */
-    .header-image {
-      text-align: center;
-      background: #fff;
-    }
-    .header-image img {
-      width: 100%;
-      height: auto;
-      max-height: 250px;
-      object-fit: cover;
-      display: block;
-    }
-    /* Header (barra gris) con menor grosor */
-    header {
-      text-align: center;
-      padding: 20px 20px;
-      background: #2c3e50;
-      color: #fff;
-    }
-    /* En este header se ha quitado la línea de "Escuela Martin de Coruña" */
-    header p {
-      font-size: 1.2rem;
-      margin: 5px 0;
-    }
-    section {
-      padding: 30px 40px;
-    }
-    section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-    section h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background: #e74c3c;
-    }
-    section p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .details ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .details ul li {
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-    .details ul li ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-    .cta {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .cta a {
-      text-decoration: none;
-      background: #e74c3c;
-      color: #fff;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border-radius: 50px;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .cta a:hover {
-      background: #c0392b;
-      transform: scale(1.05);
-    }
-    footer {
-      background: #ecf0f1;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campamento Yermista 2025 - Moderno</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        color: #333;
+        line-height: 1.6;
+      }
       .container {
-        margin: 20px;
+        max-width: 800px;
+        background: #fff;
+        margin: 40px auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+      /* Imagen de cabecera */
+      .header-image {
+        text-align: center;
+        background: #fff;
+      }
+      .header-image img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+      }
+      /* Barra gris (header) con menor grosor */
+      header {
+        text-align: center;
+        padding: 20px;
+        background: #2c3e50;
+        color: #fff;
       }
       header p {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        margin: 5px 0;
       }
       section {
-        padding: 20px;
+        padding: 30px 40px;
+      }
+      section h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: #e74c3c;
+      }
+      section p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 20px;
+      }
+      .details ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .details ul li {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      .details ul li ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-top: 8px;
+      }
+      .cta {
+        text-align: center;
+        margin: 40px 0;
       }
       .cta a {
-        padding: 10px 20px;
-        font-size: 1rem;
+        text-decoration: none;
+        background: #e74c3c;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        transition: transform 0.3s ease, background 0.3s ease;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Imagen en la parte superior -->
-    <div class="header-image">
-      <a href="https://ibb.co/1JMMtcLW">
-        <img src="https://i.ibb.co/FqXXLpKT/campamento-Encabezado-de-Google-Classroom.png" alt="campamento-Encabezado-de-Google-Classroom" border="0">
-      </a>
+      .cta a:hover {
+        background: #c0392b;
+        transform: scale(1.05);
+      }
+      footer {
+        background: #ecf0f1;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+      @media (max-width: 600px) {
+        .container {
+          margin: 20px;
+        }
+        header p {
+          font-size: 1rem;
+        }
+        section {
+          padding: 20px;
+        }
+        .cta a {
+          padding: 10px 20px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Imagen en la parte superior -->
+      <div
+        class="header-image"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        <a href="https://ibb.co/1JMMtcLW">
+          <img
+            src="https://i.ibb.co/FqXXLpKT/campamento-Encabezado-de-Google-Classroom.png"
+            alt="campamento-Encabezado-de-Google-Classroom"
+            border="0"
+          />
+        </a>
+      </div>
+      <!-- Barra gris (header) -->
+      <header data-aos="fade-down" data-aos-duration="1000">
+        <p>Fechas: 30 y 31 de mayo</p>
+      </header>
+
+      <section data-aos="fade-up">
+        <h2>
+          <span class="emoji">✨</span>Descripción del Evento
+        </h2>
+        <p>
+          ¡Vive la aventura en el Campamento Yermista 2025! Durante dos días,
+          sumérgete en la naturaleza y disfruta de actividades al aire libre,
+          fogatas, caminatas, juegos deportivos y dinámicas grupales que
+          fortalecerán la amistad y el espíritu de equipo.
+        </p>
+      </section>
+
+      <section class="details" data-aos="fade-up" data-aos-delay="100">
+        <h2>
+          <span class="emoji">⚠️</span>Detalles Importantes
+        </h2>
+        <ul>
+          <li>
+            <strong>Inscripción:</strong> Completa el formulario de inscripción.
+          </li>
+          <li>
+            <strong>Costo:</strong> $1,500 por alumno, dividido en tres abonos:
+            <ul>
+              <li>Del 28 al 30 de abril</li>
+              <li>Del 12 al 15 de mayo</li>
+              <li>Del 26 al 28 de mayo</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Cancelaciones:</strong> Hasta el 19 de mayo con devolución total.
+            Después, no se reembolsa.
+          </li>
+          <li>
+            <strong>Normas:</strong> Cumple con el reglamento de conducta para garantizar
+            el éxito del campamento.
+          </li>
+        </ul>
+      </section>
+
+      <section class="details" data-aos="fade-up" data-aos-delay="200">
+        <h2>
+          <span class="emoji">🎒</span>Equipo de Campista
+        </h2>
+        <ul>
+          <li>Sleeping bag</li>
+          <li>Lámpara de mano</li>
+          <li>Maleta marcada con el nombre completo</li>
+          <li>
+            Ropa adecuada (pijama, ropa de cambio, extras de ropa interior, etc.)
+          </li>
+          <li>Calzado deportivo y sandalias</li>
+          <li>Artículos de aseo personal y botellas de agua</li>
+        </ul>
+      </section>
+
+      <div class="cta" data-aos="zoom-in" data-aos-delay="300">
+        <a
+          href="https://forms.gle/6U7rKS1qBh7bBSnU6"
+          target="_blank"
+          >Inscríbete Ahora</a
+        >
+      </div>
+
+      <footer data-aos="fade-up" data-aos-delay="400">
+        Escuela Martin de Coruña - Campamento Yermista 2025
+      </footer>
     </div>
-    <!-- Barra gris (header) -->
-    <header>
-      <p>Fechas: 30 y 31 de mayo</p>
-    </header>
-
-    <section>
-      <h2>Descripción del Evento</h2>
-      <p>
-        ¡Vive la aventura en el Campamento Yermista 2025! Durante dos días, sumérgete en la naturaleza y disfruta de actividades al aire libre, fogatas, caminatas, juegos deportivos y dinámicas grupales que fortalecerán la amistad y el espíritu de equipo.
-      </p>
-    </section>
-
-    <section class="details">
-      <h2>Detalles Importantes</h2>
-      <ul>
-        <li>
-          <strong>Inscripción:</strong> Completa el formulario de inscripción.
-        </li>
-        <li>
-          <strong>Costo:</strong> $1,500 por alumno, dividido en tres abonos:
-          <ul>
-            <li>Del 28 al 30 de abril</li>
-            <li>Del 12 al 15 de mayo</li>
-            <li>Del 26 al 28 de mayo</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Cancelaciones:</strong> Hasta el 19 de mayo con devolución total. Después, no se reembolsa.
-        </li>
-        <li>
-          <strong>Normas:</strong> Cumple con el reglamento de conducta para garantizar el éxito del campamento.
-        </li>
-      </ul>
-    </section>
-
-    <section class="details">
-      <h2>Equipo de Campista</h2>
-      <ul>
-        <li>Sleeping bag</li>
-        <li>Lámpara de mano</li>
-        <li>Maleta marcada con el nombre completo</li>
-        <li>Ropa adecuada (pijama, ropa de cambio, extras de ropa interior, etc.)</li>
-        <li>Calzado deportivo y sandalias</li>
-        <li>Artículos de aseo personal y botellas de agua</li>
-      </ul>
-    </section>
-
-    <div class="cta">
-      <a href="https://forms.gle/6U7rKS1qBh7bBSnU6" target="_blank">Inscríbete Ahora</a>
-    </div>
-
-    <footer>
-      Escuela Martin de Coruña - Campamento Yermista 2025
-    </footer>
-  </div>
-</body>
+    <!-- AOS Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1200,
+        once: true
+      });
+    </script>
+  </body>
 </html>
