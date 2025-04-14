@@ -9,11 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <!-- AOS CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      rel="stylesheet"
-    />
     <style>
       /* Reset básico */
       * {
@@ -21,20 +16,48 @@
         padding: 0;
         box-sizing: border-box;
       }
+      
       body {
-        font-family: "Roboto", sans-serif;
+        font-family: 'Roboto', sans-serif;
         background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
         color: #333;
         line-height: 1.6;
       }
+      
+      /* Contenedor principal con fondo blanco */
       .container {
         max-width: 800px;
         background: #fff;
         margin: 40px auto;
         border-radius: 10px;
+        position: relative;
         overflow: hidden;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
       }
+      
+      /* Pseudo-elemento para el tapiz de emojis minimalistas */
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0;
+        /* Tile pequeño con 4 emojis (se repite en todo el fondo).
+           Se ha removido el emoji 🏕 */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ctext x='5' y='20' font-size='12'%3E⛺%3C/text%3E%3Ctext x='40' y='30' font-size='12'%3E🔥%3C/text%3E%3Ctext x='10' y='60' font-size='12'%3E🌲%3C/text%3E%3Ctext x='50' y='90' font-size='12'%3E🌳%3C/text%3E%3C/svg%3E");
+        background-repeat: repeat;
+        opacity: 0.1;
+        pointer-events: none;
+        z-index: 0;
+      }
+      
+      /* Contenedor del contenido para que quede encima del tapiz */
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+      
       /* Imagen de cabecera */
       .header-image {
         text-align: center;
@@ -47,7 +70,8 @@
         object-fit: cover;
         display: block;
       }
-      /* Barra gris (header) con menor grosor */
+      
+      /* Header (barra gris) */
       header {
         text-align: center;
         padding: 20px;
@@ -58,15 +82,25 @@
         font-size: 1.2rem;
         margin: 5px 0;
       }
+      
       section {
         padding: 30px 40px;
       }
+      
+      /* Títulos de sección con efecto hover y cursor personalizado */
       section h2 {
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 1.8rem;
         margin-bottom: 20px;
         position: relative;
         padding-bottom: 10px;
+        transition: transform 0.3s ease, text-shadow 0.3s ease;
+        /* Cursor personalizado: se usa una imagen alusiva al campamento (llama) */
+        cursor: url('https://i.ibb.co/d3R7YBZ/campfire-cursor.png'), pointer;
+      }
+      section h2:hover {
+        transform: scale(1.05);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       }
       section h2::after {
         content: "";
@@ -77,11 +111,13 @@
         height: 3px;
         background: #e74c3c;
       }
+      
       section p {
         font-size: 1.1rem;
         color: #555;
         margin-bottom: 20px;
       }
+      
       .details ul {
         list-style: none;
         padding-left: 0;
@@ -95,9 +131,12 @@
         margin-left: 20px;
         margin-top: 8px;
       }
+      
       .cta {
         text-align: center;
         margin: 40px 0;
+        position: relative;
+        overflow: visible;
       }
       .cta a {
         text-decoration: none;
@@ -108,26 +147,24 @@
         border-radius: 50px;
         transition: transform 0.3s ease, background 0.3s ease;
         display: inline-block;
-        /* Animación de palpitación */
         animation: pulsate 1.5s infinite;
       }
       .cta a:hover {
         background: #c0392b;
         transform: scale(1.05);
       }
+      @keyframes pulsate {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+      
       footer {
         background: #ecf0f1;
         text-align: center;
         padding: 20px;
         font-size: 0.9rem;
         color: #666;
-      }
-      
-      /* Keyframes para la animación de palpitación */
-      @keyframes pulsate {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
       }
       
       @media (max-width: 600px) {
@@ -149,88 +186,61 @@
   </head>
   <body>
     <div class="container">
-      <!-- Imagen en la parte superior -->
-      <div class="header-image" data-aos="fade-down" data-aos-duration="800">
-        <a href="https://ibb.co/1JMMtcLW">
-          <img
-            src="https://i.ibb.co/FqXXLpKT/campamento-Encabezado-de-Google-Classroom.png"
-            alt="campamento-Encabezado-de-Google-Classroom"
-            border="0"
-          />
-        </a>
+      <div class="content">
+        <!-- Imagen de cabecera -->
+        <div class="header-image">
+          <a href="https://ibb.co/1JMMtcLW">
+            <img src="https://i.ibb.co/FqXXLpKT/campamento-Encabezado-de-Google-Classroom.png" alt="campamento-Encabezado-de-Google-Classroom" border="0" />
+          </a>
+        </div>
+        <!-- Barra gris (header) -->
+        <header>
+          <p>Fechas: 30 y 31 de mayo</p>
+        </header>
+        <section>
+          <h2><span class="emoji">✨</span>Descripción del Evento</h2>
+          <p>
+            ¡Vive la aventura en el Campamento Yermista 2025! Durante dos días, sumérgete en la naturaleza y disfruta de actividades al aire libre, fogatas, caminatas, juegos deportivos y dinámicas grupales que fortalecerán la amistad y el espíritu de equipo.
+          </p>
+        </section>
+        <section class="details">
+          <h2><span class="emoji">⚠️</span>Detalles Importantes</h2>
+          <ul>
+            <li><strong>Inscripción:</strong> Completa el formulario de inscripción.</li>
+            <li>
+              <strong>Costo:</strong> $1,500 por alumno, dividido en tres abonos:
+              <ul>
+                <li>Del 28 al 30 de abril</li>
+                <li>Del 12 al 15 de mayo</li>
+                <li>Del 26 al 28 de mayo</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Cancelaciones:</strong> Hasta el 19 de mayo con devolución total. Después, no se reembolsa.
+            </li>
+            <li>
+              <strong>Normas:</strong> Cumple con el reglamento de conducta para garantizar el éxito del campamento.
+            </li>
+          </ul>
+        </section>
+        <section class="details">
+          <h2><span class="emoji">🎒</span>Equipo de Campista</h2>
+          <ul>
+            <li>Sleeping bag</li>
+            <li>Lámpara de mano</li>
+            <li>Maleta marcada con el nombre completo</li>
+            <li>Ropa adecuada (pijama, ropa de cambio, extras de ropa interior, etc.)</li>
+            <li>Calzado deportivo y sandalias</li>
+            <li>Artículos de aseo personal y botellas de agua</li>
+          </ul>
+        </section>
+        <div class="cta">
+          <a href="https://forms.gle/6U7rKS1qBh7bBSnU6" target="_blank">Inscríbete Ahora</a>
+        </div>
+        <footer>
+          Escuela Martin de Coruña - Campamento Yermista 2025
+        </footer>
       </div>
-      <!-- Barra gris (header) -->
-      <header data-aos="fade-down" data-aos-duration="800">
-        <p>Fechas: 30 y 31 de mayo</p>
-      </header>
-  
-      <section data-aos="fade-up" data-aos-duration="800">
-        <h2>
-          <span class="emoji">✨</span>Descripción del Evento
-        </h2>
-        <p>
-          ¡Vive la aventura en el Campamento Yermista 2025! Durante dos días, sumérgete en la
-          naturaleza y disfruta de actividades al aire libre, fogatas, caminatas, juegos deportivos
-          y dinámicas grupales que fortalecerán la amistad y el espíritu de equipo.
-        </p>
-      </section>
-  
-      <section class="details" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-        <h2>
-          <span class="emoji">⚠️</span>Detalles Importantes
-        </h2>
-        <ul>
-          <li>
-            <strong>Inscripción:</strong> Completa el formulario de inscripción.
-          </li>
-          <li>
-            <strong>Costo:</strong> $1,500 por alumno, dividido en tres abonos:
-            <ul>
-              <li>Del 28 al 30 de abril</li>
-              <li>Del 12 al 15 de mayo</li>
-              <li>Del 26 al 28 de mayo</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Cancelaciones:</strong> Hasta el 19 de mayo con devolución total. Después, no se
-            reembolsa.
-          </li>
-          <li>
-            <strong>Normas:</strong> Cumple con el reglamento de conducta para garantizar el éxito del
-            campamento.
-          </li>
-        </ul>
-      </section>
-  
-      <section class="details" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-        <h2>
-          <span class="emoji">🎒</span>Equipo de Campista
-        </h2>
-        <ul>
-          <li>Sleeping bag</li>
-          <li>Lámpara de mano</li>
-          <li>Maleta marcada con el nombre completo</li>
-          <li>Ropa adecuada (pijama, ropa de cambio, extras de ropa interior, etc.)</li>
-          <li>Calzado deportivo y sandalias</li>
-          <li>Artículos de aseo personal y botellas de agua</li>
-        </ul>
-      </section>
-  
-      <div class="cta" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
-        <a href="https://forms.gle/6U7rKS1qBh7bBSnU6" target="_blank">Inscríbete Ahora</a>
-      </div>
-  
-      <footer data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-        Escuela Martin de Coruña - Campamento Yermista 2025
-      </footer>
     </div>
-    <!-- AOS Library JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800,
-        once: true
-      });
-    </script>
   </body>
 </html>
